@@ -1,33 +1,34 @@
 import pandas as pd
 import sys
 
-    
 excel1 = 'data.xlsx'
 excel2 = 'data_1.xlsx'
 
 
-parsed_file = pd.DataFrame({}) #Initializing an Empty data frame
+parsed_file = pd.DataFrame({})  # Initializing an Empty data frame
+
 
 def combine_Excel_files(excel_file):
-    dta_frame = pd.ExcelFile(excel_file, engine='openpyxl') #Opening of excel1 file
-    p_file = pd.DataFrame({}) #initializing empty temporary Empty dataframe to be returned
+    # Opening of excel1 file
+    dta_frame = pd.ExcelFile(excel_file, engine='openpyxl')
+    p_file = pd.DataFrame({})
+    # initializing empty temporary Empty dataframe to be returned
     for i in dta_frame.sheet_names:
         if 'DetailVol_67_' in i:
             temporary_dataFrame = dta_frame.parse(i)
-            p_file = p_file.append(temporary_dataFrame) #appending details at the end of file
-    return p_file #returning the final value of p_file
-    
+            # appending details at the end of file
+            p_file = p_file.append(temporary_dataFrame)
+    return p_file  # returning the final value of p_file
 
-file_1 = combine_Excel_files(excel1) #function call to retrieve all the columns from the sheet DetailVol_67_
-parsed_file = parsed_file.append(file_1) #appending contents of file 1 to parsed_file
-
-file_2 =combine_Excel_files(excel2) #function call to retrieve all the columns from the sheet DetailVol_67_
-parsed_file = parsed_file.append(file_2) #appending contents of file 2 to parsed_file
-
-print (parsed_file) # printing  parsed_file or final output
-
-
-
-parsed_file.to_csv(r'E:\NUNAM ASSIGN\detailVol.csv') # converting to csv file
-
-
+# function call to retrieve all the columns from the sheet DetailVol_67_
+file_1 = combine_Excel_files(excel1)
+# appending contents of file 1 to parsed_file
+parsed_file = parsed_file.append(file_1)
+# function call to retrieve all the columns from the sheet DetailVol_67_
+file_2 = combine_Excel_files(excel2)
+# appending contents of file 2 to parsed_file
+parsed_file = parsed_file.append(file_2)
+# printing  parsed_file or final output
+print (parsed_file)
+# converting to csv file
+parsed_file.to_csv(r'E:\NUNAM ASSIGN\detailVol.csv')
