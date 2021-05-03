@@ -1,16 +1,6 @@
 import pandas as pd
 import sys
-a = ['E:\\Anaconda\\python37.zip',
-     'E:\\Anaconda\\DLLs', 
-     'E:\\Anaconda\\lib', 
-     'E:\\Anaconda', 
-     'E:\\Anaconda\\lib\\site-packages', 
-     'E:\\Anaconda\\lib\\site-packages\\win32', 
-     'E:\\Anaconda\\lib\\site-packages\\win32\\lib', 
-     'E:\\Anaconda\\lib\\site-packages\\Pythonwin']
 
-for i in a:
-    sys.path.append(i)
  
     
 excel1 = 'data.xlsx'
